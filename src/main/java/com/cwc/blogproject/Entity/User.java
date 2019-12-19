@@ -1,11 +1,14 @@
 package com.cwc.blogproject.Entity;
 
 import lombok.Data;
+
+import java.util.Date;
+
 /*import tk.mybatis.mapper.annotation.KeySql;
 
 import javax.persistence.Id;
 import javax.persistence.Table;*/
-import java.util.Date;
+
 @Data
 /*@Table(name = "user")*/
 public class User {
@@ -26,5 +29,6 @@ public class User {
     private Date createtime;
     private Long usertype;
     private  String signature;
+    private String phone;
 
 }

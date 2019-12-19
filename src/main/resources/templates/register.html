@@ -8,13 +8,15 @@
 	<title>登录</title>
 	<meta name="keywords" content="" />
 	<meta name="description" content="" />
-	<script src="../static/js/jquery.min.js"></script>
+	<script src="../static/js/jquery/dist/jquery.js"></script>
 	<script src="../static/js/main.js"></script>
 	<link rel="stylesheet" href="../static/js/bootstrap/css/bootstrap.min.css">
-	<link rel="stylesheet" href="../static/css/fonts/font-awesome-4.7.0/css/font-awesome.css">
+	<link rel="stylesheet" href="../static/css/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="../static/css/fonts/iconic/css/material-design-iconic-font.css">
 	<link rel="stylesheet" href="../static/css/main.css">
 	<link rel="stylesheet" href="../static/css/util.css">
+
+
 </head>
 
 <body>
@@ -22,12 +24,16 @@
 	<div class="limiter">
 		<div class="container-login100" style="background-image: url('../static/images/47fb3c_.jpg');">
 			<div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54">
-				<form class="login100-form validate-form" th:action="@{/userlogin}" method="post">
-					<span class="login100-form-title p-b-49">登录</span>
-
-					<div class="wrap-input100 validate-input m-b-23" data-validate="请输入用户名">
+				<form class="login100-form validate-form" method="post" th:action="@{/userregister}">
+					<span class="login100-form-title p-b-49">注册</span>
+					<div class="wrap-input100 validate-input m-b-23" data-validate="请输入昵称">
+						<span class="label-input100">昵称</span>
+						<input class="input100" type="text" name="nickname" placeholder="请输入昵称" autocomplete="off">
+						<span class="focus-input100" data-symbol="&#xf206;"></span>
+					</div>
+					<div class="wrap-input100 validate-input m-b-23" data-validate="请输入账号">
 						<span class="label-input100">账号</span>
-						<input class="input100" type="text" name="username" placeholder="请输入用户名" autocomplete="off">
+						<input class="input100" type="text" name="username" placeholder="请输入账号" autocomplete="off">
 						<span class="focus-input100" data-symbol="&#xf206;"></span>
 					</div>
 
@@ -38,36 +44,15 @@
 					</div>
 
 					<div class="text-right p-t-8 p-b-31">
+						<a th:href="@{/login}" style="color:blue;">已有账号去登录</a>
 						<a href="javascript:">忘记密码？</a>
 					</div>
 
 					<div class="container-login100-form-btn">
 						<div class="wrap-login100-form-btn">
 							<div class="login100-form-bgbtn"></div>
-							<button class="login100-form-btn" type="submit">登 录</button>
+							<button class="login100-form-btn" type="submit" >注册</button>
 						</div>
-					</div>
-
-					<div class="txt1 text-center p-t-54 p-b-20">
-						<span>第三方登录</span>
-					</div>
-
-					<div class="flex-c-m">
-						<a href="#" class="login100-social-item bg1">
-							<i class="fa fa-wechat"></i>
-						</a>
-
-						<a href="#" class="login100-social-item bg2">
-							<i class="fa fa-qq"></i>
-						</a>
-
-						<a href="#" class="login100-social-item bg3">
-							<i class="fa fa-weibo"></i>
-						</a>
-					</div>
-
-					<div class="flex-col-c p-t-25">
-						<a th:href="@{/register}" class="txt2">立即注册</a>
 					</div>
 
 				</form>
