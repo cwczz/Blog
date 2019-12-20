@@ -4,10 +4,13 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" type="text/css" href="../static/css/index.css" media="all" />
+
 </head>
 <body>
 <div th:fragment="menu(n)">
+
     <div class="Yarn_Background" style="background-image: url( ../static/images/47fb3c_.jpg);"></div>
+
     <form class="js-search search-form search-form--modal" method="get" action="search.html" role="search">
         <div class="search-form__inner">
             <div>
@@ -52,17 +55,15 @@
                                 <li id="menu-item-173" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-173">
                                     <a href="update.html">更新</a>
                                 </li>
-                                <li id="menu-item-174" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-174">
-                                    <a th:href="@{/login}" th:text="${session.user1!=null}?'':'登录'"></a>
-                                </li>
                                 <li id="menu-item-254" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-254">
+                                    <a th:href="@{/login}" th:if="${session.user1==null}" th:text="'登录'"></a>
                                     <a  th:text="${session.user1}?'欢迎您，'+${session.user1.getNickname()}:''" ></a>
                                     <ul class="sub-menu">
                                         <li id="menu-item-167" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-167">
                                             <a href="" th:if="${session.user1!=null}">个人中心</a>
                                         </li>
                                         <li id="menu-item-925" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-925">
-                                            <a th:href="@{/logout}">注销</a>
+                                            <a th:href="@{/logout}" th:if="${session.user1!=null}" >注销</a>
                                         </li>
                                     </ul>
                                 </li>
@@ -81,10 +82,11 @@
         <div class="site-branding text-center">
             <a href="">
                 <figure>
-                    <img class="custom-logo avatar" src="../static/images/omikron.png" />
+                    <img class="custom-logo avatar"th:src="${session.user1}?${session.user1.getAvatar()}"  />
+                    <img class="custom-logo avatar" th:if="${session.user1==null}" src="../static/images/omikron.png"  />
                 </figure>
             </a>
-            <h1 class="blog-description"><p th:text="${session.user1.getSignature()}"></p></h1>
+            <h1 class="blog-description"><p th:text="${session.user1}?${session.user1.getSignature()}"></p></h1>
         </div>
         <!-- .site-branding -->
         <div class="decor-part">
@@ -105,6 +107,7 @@
             </div>
         </div>
     </header>
+
 </div>
 <script type='text/javascript' src='../static/js/jquery.min.js'></script>
 <script type='text/javascript' src='../static/js/plugins.js'></script>

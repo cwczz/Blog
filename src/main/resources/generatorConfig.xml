@@ -37,7 +37,7 @@
 
         <!-- 数据库连接信息 -->
         <jdbcConnection driverClass="com.mysql.jdbc.Driver"
-                        connectionURL="jdbc:mysql:///blogdb" userId="root" password="root">
+                        connectionURL="jdbc:mysql://192.168.0.103/blogdb" userId="root" password="root">
         </jdbcConnection>
 
         <!-- java类型处理器 用于处理数据库中的类型到Java中的类型，

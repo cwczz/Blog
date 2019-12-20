@@ -14,6 +14,8 @@ public class WebMvcConfig implements WebMvcConfigurer {
         /*跳转主页页面*/
         registry.addViewController("/").setViewName("index");
         registry.addViewController("/index").setViewName("index");
+        /*跳转到内容页面*/
+        registry.addViewController("/detail").setViewName("detail");
         /* 跳转登录注册页面*/
         registry.addViewController("/login").setViewName("login");
         registry.addViewController("/register").setViewName("register");

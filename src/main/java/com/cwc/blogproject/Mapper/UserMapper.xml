@@ -10,10 +10,11 @@
     <result column="avatar" property="avatar" jdbcType="VARCHAR" />
     <result column="createTime" property="createtime" jdbcType="DATE" />
   </resultMap>
+  <!--添加用户-->
   <insert id="addUser" parameterType="com.cwc.blogproject.Entity.User">
     insert into `user`( `nickname`,`username`,`password`) values (#{nickname},#{username},#{password})
   </insert>
-
+<!--用户登录-->
   <select id="getUserlogin" resultType="com.cwc.blogproject.Entity.User">
     select id, nickname, username, email, avatar, createTime,signature,phone
     from `user` where username=#{username}and password=#{password}
