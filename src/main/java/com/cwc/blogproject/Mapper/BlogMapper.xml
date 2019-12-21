@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cwc.blogproject.Mapper.BlogMapper" >
+  <resultMap id="BaseResultMap" type="com.cwc.blogproject.Entity.Blog" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+    <result column="content" property="content" jdbcType="VARCHAR" />
+    <result column="firstPicture" property="firstpicture" jdbcType="VARCHAR" />
+    <result column="flag" property="flag" jdbcType="VARCHAR" />
+    <result column="views" property="views" jdbcType="INTEGER" />
+    <result column="appreciation" property="appreciation" jdbcType="BIT" />
+    <result column="sharestatement" property="sharestatement" jdbcType="BIT" />
+    <result column="commenttabled" property="commenttabled" jdbcType="BIT" />
+    <result column="published" property="published" jdbcType="BIT" />
+    <result column="recommend" property="recommend" jdbcType="BIT" />
+    <result column="createTime" property="createtime" jdbcType="DATE" />
+    <result column="updateTime" property="updatetime" jdbcType="DATE" />
+    <association property="type" javaType="com.cwc.blogproject.Entity.Type">
+      <id column="id" property="id" jdbcType="BIGINT" />
+      <result column="tag_name" property="tagName" jdbcType="VARCHAR" />
+    </association>
+    <association property="user" javaType="com.cwc.blogproject.Entity.User">
+      <id column="id" property="id" jdbcType="BIGINT" />
+      <result column="nickname" property="nickname" jdbcType="VARCHAR" />
+      <result column="username" property="username" jdbcType="VARCHAR" />
+      <result column="password" property="password" jdbcType="VARCHAR" />
+      <result column="email" property="email" jdbcType="VARCHAR" />
+      <result column="avatar" property="avatar" jdbcType="VARCHAR" />
+      <result column="createTime" property="createtime" jdbcType="DATE" />
+    </association>
+  </resultMap>
+
+  <!--初始化页面数据-->
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select id, title, content, firstPicture, flag, views, appreciation, sharestatement, 
+    commenttabled, published, recommend, createTime, updateTime, type_id, user_id
+    from blog
+  </select>
+</mapper>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cwc.blogproject.Mapper.BlogTagMapper" >
+  <resultMap id="BaseResultMap" type="com.cwc.blogproject.Entity.BlogTag" >
+    <result column="blog_id" property="blogId" jdbcType="BIGINT" />
+    <result column="tag_id" property="tagId" jdbcType="BIGINT" />
+  </resultMap>
+  <insert id="insert" parameterType="com.cwc.blogproject.Entity.BlogTag" >
+    insert into blog_tag (blog_id, tag_id)
+    values (#{blogId,jdbcType=BIGINT}, #{tagId,jdbcType=BIGINT})
+  </insert>
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select blog_id, tag_id
+    from blog_tag
+  </select>
+</mapper>

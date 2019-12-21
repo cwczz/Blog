@@ -13,7 +13,7 @@ public class LoginInterceptor implements HandlerInterceptor {
         Object user1 = request.getSession().getAttribute("user1");
         System.out.println(user1);
         if (request.getSession().getAttribute("user1")==null){
-            response.sendRedirect("/login");
+            response.sendRedirect("/index");
         }
         return true;
     }

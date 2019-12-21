@@ -82,8 +82,8 @@
         <div class="site-branding text-center">
             <a href="">
                 <figure>
-                    <img class="custom-logo avatar"th:src="${session.user1}?${session.user1.getAvatar()}"  />
-                    <img class="custom-logo avatar" th:if="${session.user1==null}" src="../static/images/omikron.png"  />
+                    <img class="custom-logo avatar"th:src="${session.user1}?${session.user1.getAvatar()}"    />
+                    <img class="custom-logo avatar" th:if="${session.user1==null}" src="../static/images/omikron.png" style="position: relative; right: 50px"  />
                 </figure>
             </a>
             <h1 class="blog-description"><p th:text="${session.user1}?${session.user1.getSignature()}"></p></h1>
